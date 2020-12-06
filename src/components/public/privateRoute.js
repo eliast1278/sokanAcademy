@@ -10,10 +10,11 @@ class PrivateRoute extends Component{
             (
                 
                         <>
-    
+                         
                             <div >
                                 <Component {...props} />
                             </div>
+
 
                         </>
                    

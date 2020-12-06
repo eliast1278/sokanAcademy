@@ -7,6 +7,7 @@ import {Router} from "react-router-dom";
 import store from './store';
 import history from "./components/main/history";
 import 'bootstrap/dist/css/bootstrap.css';
+import "./components/assets/style.css";
 
 
 ReactDOM.render(

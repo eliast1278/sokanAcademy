@@ -1,0 +1,16 @@
+@font-face {
+  font-family: mulish;
+  font-style: normal;
+  font-weight: normal;
+  src: url(../font/Mulish-Regular.ttf);
+}
+
+:root {
+  --main-bg-blue: #e5e5e5;
+  --main-sidebar-color: #363740;
+}
+
+body {
+  font-family: mulish;
+  background: var(--main-bg-blue);
+}
