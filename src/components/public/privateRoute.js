@@ -1,25 +1,24 @@
-import React,{Component} from "react";
-import {Route} from "react-router-dom"
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import PrivateHeader from "./privateHeader";
 
-
-
-class PrivateRoute extends Component{
-    render(){
-        const {component: Component, ...restProps} = this.props;
-        return <Route {...restProps} render={(props) =>
-            (
-                
-                        <>
-                         
-                            <div >
-                                <Component {...props} />
-                            </div>
-
-
-                        </>
-                   
-            )}/>
-    }
+class PrivateRoute extends Component {
+  render() {
+    const { component: Component, ...restProps } = this.props;
+    return (
+      <Route
+        {...restProps}
+        render={(props) => (
+          <>
+            <PrivateHeader />
+            <div>
+              <Component {...props} />
+            </div>
+          </>
+        )}
+      />
+    );
+  }
 }
 
-export default PrivateRoute
+export default PrivateRoute;

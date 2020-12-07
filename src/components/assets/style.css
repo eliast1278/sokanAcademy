@@ -8,9 +8,28 @@
 :root {
   --main-bg-blue: #e5e5e5;
   --main-sidebar-color: #363740;
+  --main-light-gray: #c5c7cd;
 }
 
 body {
   font-family: mulish;
   background: var(--main-bg-blue);
+}
+.rtl {
+  direction: rtl !important;
+}
+.font14 {
+  font-size: 14px;
+}
+.font24 {
+  font-size: 24px;
+}
+.color-muted {
+  color: var(--main-light-gray);
+}
+.name-tag {
+  border-left: 1px solid #dfe0eb;
+}
+.pv-header {
+  margin-left: 255px;
 }
