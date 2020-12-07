@@ -60,3 +60,36 @@ body {
 .nav-link.active .change-color {
   fill: #dde2ff !important;
 }
+.main-body {
+  margin-top: 70px;
+  margin-left: 255px;
+  height: calc(100vh - 80px) !important;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.font40 {
+  font-size: 40px;
+}
+.top-widget {
+  background: #ffffff;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #dfe0eb;
+  border-radius: 8px;
+}
+.top-widget .title {
+  font-size: 19px;
+  color: #9fa2b4;
+}
+.top-widget .value {
+  font-size: 40px;
+  color: #252733;
+  font-weight: bold;
+}
+.top-widget.active {
+  border: 1px solid #3751ff;
+  color: #3751ff !important;
+}
