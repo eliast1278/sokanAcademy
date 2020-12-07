@@ -33,3 +33,30 @@ body {
 .pv-header {
   margin-left: 255px;
 }
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding-top: 1rem;
+  width: 255px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-size: 16px;
+  background-color: var(--main-sidebar-color);
+}
+.sidebar .nav-link {
+  color: #a4a6b3;
+}
+.sidebar .title {
+  color: #a4a6b3;
+  font-size: 19px;
+}
+.sidebar .nav-link.active {
+  background-color: rgba(299, 299, 299, 0.2);
+  color: #dde2ff;
+  border-left: 3px solid #dde2ff;
+}
+.nav-link.active .change-color {
+  fill: #dde2ff !important;
+}

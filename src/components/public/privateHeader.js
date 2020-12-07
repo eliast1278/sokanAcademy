@@ -5,7 +5,7 @@ class PrivateHeader extends Component {
     return (
       <section className={"p-3 text-dark fixed-top pv-header"}>
         <div className="container-fluid">
-          <div class="row rtl">
+          <div className="row rtl">
             <div className="col-md-6">
               <ul className="list-group list-group-horizontal list-unstyled p-0">
                 <li className=" is-link d-flex align-items-center  name-tag pl-3">
@@ -21,9 +21,9 @@ class PrivateHeader extends Component {
                   </span>
                 </li>
                 <li className=" d-flex align-items-center mr-4">
-                  <i class="fa fa-bell color-muted" aria-hidden="true"></i>
+                  <i className="fa fa-bell color-muted" aria-hidden="true"></i>
                   <i
-                    class="fa fa-search mx-3 color-muted"
+                    className="fa fa-search mx-3 color-muted"
                     aria-hidden="true"
                   ></i>
                 </li>
