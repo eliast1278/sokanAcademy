@@ -111,3 +111,26 @@ body {
   background: #ffffff;
   border-radius: 8px;
 }
+.users{
+  background: white;
+  border-radius: 8px;
+  padding: 32px !important;
+}
+.new-tbl{
+  text-align: left;
+  margin-top: 35px;
+}
+.new-tbl .tbl-head{
+  padding:25px 0px;
+  font-size: 14px;
+  font-family: mulish;
+  color: #9FA2B4;
+  border-bottom: 1.5px solid #DFE0EB;
+}
+.new-tbl .tbl-row{
+  padding:25px 0px;
+  font-size: 14px;
+  font-family: mulish;
+  border-bottom: 1.5px solid #DFE0EB;
+
+}

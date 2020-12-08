@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import _default from "../../assets/helper/default.json";
+import _default from "../assets/helper/default.json";
 import TblLoading from "./TblLoading";
 
 class MainStickyTbl extends Component {
@@ -16,16 +16,16 @@ class MainStickyTbl extends Component {
           <div className="tbl-head back-sky padding4">{this.props.topHead}</div>
         ) : null}
         <div
-          className="tbl-head flexed bg-white"
+          className="tbl-head d-flex bg-white"
           style={{ top: this.props.top }}
         >
           {this.props.head.map((headItem, index) => {
             return (
               <span
                 key={index}
-                className={`${
-                  this.props.cols ? "flex" + this.props.cols[index] : "flex1"
-                }`}
+                style={{flex:`${
+                    this.props.cols ? this.props.cols[index] : 1
+                }`}}
               >
                 {headItem}
               </span>
@@ -46,11 +46,12 @@ class MainStickyTbl extends Component {
                         {rowItem != null ? (
                           <span
                             key={inde}
-                            className={`p-1 ${rowItem.class || ""} ${
+                            className={"p-1"}
+                            style={{flex:`${rowItem.class || ""} ${
                               this.props.cols
-                                ? "flex" + this.props.cols[inde]
-                                : "flex1"
-                            }`}
+                                ? this.props.cols[inde]
+                                : 1
+                            }`}}
                           >
                             {rowItem.class ? rowItem.data : rowItem}
                           </span>
