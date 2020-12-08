@@ -73,13 +73,6 @@ axios.interceptors.response.use(
               toast.error(row.exception.persianDescription);
             });
           }
-        } else if (error.response.status === 401) {
-          // clear localStorage
-          localStorage.removeItem(_default.tokenName);
-        } else if (error.response.status === 406) {
-          toast.error(error.response.data["fa"] || error.response.data["msg"]);
-        } else if (error.response.status === 403) {
-          toast.error(error.response.data["fa"] || error.response.data["msg"]);
         } else {
           toast.error("_errorDesc.requestError");
         }

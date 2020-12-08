@@ -1,9 +1,7 @@
 import "./App.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { Switch } from "react-router-dom";
-import Route from "react-router-dom/es/Route";
+import { Route, Switch } from "react-router";
 import { ToastContainer } from "react-toastify";
-
 //components
 import NotFound from "./components/main/notFound";
 //private route includes header and footer

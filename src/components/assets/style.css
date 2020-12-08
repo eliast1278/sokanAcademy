@@ -32,6 +32,7 @@ body {
 }
 .pv-header {
   margin-left: 255px;
+  background: var(--main-bg-blue);
 }
 .sidebar {
   position: fixed;
@@ -84,6 +85,12 @@ body {
   font-size: 19px;
   color: #9fa2b4;
 }
+.top-widget-row {
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-column-gap: 30px;
+}
 .top-widget .value {
   font-size: 40px;
   color: #252733;
@@ -92,4 +99,15 @@ body {
 .top-widget.active {
   border: 1px solid #3751ff;
   color: #3751ff !important;
+}
+.top-widget.active .title {
+  color: #3751ff !important;
+}
+.top-widget.active .value {
+  color: #3751ff !important;
+}
+.chart-widget {
+  margin-top: 30px;
+  background: #ffffff;
+  border-radius: 8px;
 }
