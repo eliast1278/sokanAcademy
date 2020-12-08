@@ -13,7 +13,7 @@ class PrivateRoute extends Component {
             <PrivateHeader />
             <PrivateSidebar />
             <div className={"main-body"}>
-              <div class="container-fluid">
+              <div className="container-fluid">
                 <Component {...props} />
               </div>
             </div>
