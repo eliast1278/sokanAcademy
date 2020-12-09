@@ -57,11 +57,12 @@ class User extends Component {
     }
 
     handleUpdateUser = (User) => {
+        console.log(User)
         let {user} = this.state
         let newUser = []
         for (let row of user) {
             if (row.id === User.id) {
-                row = user
+                row = User
             }
             newUser.push(row)
         }
