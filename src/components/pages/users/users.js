@@ -45,7 +45,7 @@ class User extends Component {
     };
 
     setModalShow() {
-        this.setState({userModal: false})
+        setStore({userModal: true})
     }
 
 
@@ -79,7 +79,7 @@ class User extends Component {
                     All Patients
                 </span>
                         <div>
-                            <button className={"btn border rounded"} title={"add"}><i className="fa fa-plus"
+                            <button onClick={()=>this.setModalShow()} className={"btn border rounded"} title={"add"}><i className="fa fa-plus"
                                                                                       aria-hidden="true"/>
                             </button>
                         </div>
