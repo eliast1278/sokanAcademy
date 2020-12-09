@@ -2,16 +2,25 @@ import React, {Component} from "react";
 import {connect, setStore} from 'trim-redux';
 import {Modal} from "react-bootstrap";
 
-
-
 class UserModal extends Component {
+    state = {
+        fields: {
+            name: "",
+            age: "",
+            phone: "",
+        }
+    }
+    handleCloseMoadl=()=>{
+        setStore({userModal:false});
+    }
+
     render() {
         return (
             <>
 
                 <Modal
-                    show={this.props.setShow}
-                    onHide={this.props.handleCloseMoadl()}
+                    show={this.props.userModal}
+                    onHide={this.handleCloseMoadl()}
                     size="lg"
                     aria-labelledby="contained-modal-title-vcenter"
                     centered
@@ -26,7 +35,6 @@ class UserModal extends Component {
 
                     </Modal.Body>
                     <Modal.Footer>
-                        <button onClick={props.onHide}>Close</button>
                     </Modal.Footer>
                 </Modal>
 
@@ -35,4 +43,7 @@ class UserModal extends Component {
     }
 }
 
-export default UserModal
+const mstp = state => ({
+    userModal: state.userModal
+})
+export default connect (mstp) (UserModal)

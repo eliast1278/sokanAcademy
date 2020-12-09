@@ -1,11 +1,13 @@
 import React, {Component} from "react";
 import MainStickyTbl from "../../main/MainStickyTbl";
 import {Modal} from "react-bootstrap";
+import {connect, setStore} from "trim-redux";
+import UserModal from "../modal/user"
 
 class User extends Component {
     state = {
-        addflag:false,
-        modalShow:true,
+        addflag: false,
+        modalShow: true,
         tblHead: ["name", "age", "phone", "Infection level", "Action"],
         tblRow: [4, 2, 3, 3, 3],
         user: [{
@@ -41,8 +43,9 @@ class User extends Component {
         this.setState({user: newUser})
 
     };
-    setModalShow(){
-        this.setState({modalShow:false})
+
+    setModalShow() {
+        this.setState({userModal: false})
     }
 
 
@@ -67,7 +70,7 @@ class User extends Component {
 
 
     render() {
-        let {user, tblHead, tblRow ,modalShow} = this.state
+        let {user, tblHead, tblRow, modalShow} = this.state
         return (
             <div className={"px-3 "}>
                 <div className="users">
@@ -91,13 +94,14 @@ class User extends Component {
                         />
                     </div>
                 </div>
-                <MyVerticallyCenteredModal
-                    show={modalShow}
-                    onHide={() => this.setModalShow()}
-                />
+                <UserModal update={this.state.addflag}/>
             </div>
         )
     }
 }
 
-export default User;
+const mstp = state => ({
+    userModal: state.userModal
+})
+
+export default connect(mstp)(User);
