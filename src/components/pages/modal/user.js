@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {connect, setStore} from 'trim-redux';
 import {Modal} from "react-bootstrap";
+import {toast} from "react-toastify"
 
 class UserModal extends Component {
     state = {
@@ -8,8 +9,21 @@ class UserModal extends Component {
             name: "",
             age: "",
             phone: "",
+            risk: "",
+            id: ""
+
         }
     }
+
+    static getDerivedStateFromProps(props, state) {
+        if (props.update) {
+            return {fields: props.user}
+        } else {
+            return null
+        }
+
+    }
+
     handleCloseModal = () => {
         setStore({userModal: false});
     }
@@ -22,7 +36,20 @@ class UserModal extends Component {
 
     }
 
+    handleSubmit = () => {
+        let {fields} = this.state
+        if (!this.props.update) {
+            this.props.add(fields)
+        }
+        else{
+            this.props.updateUser(fields)
+        }
+        toast.success("successFull");
+        this.handleCloseModal()
+    }
+
     render() {
+        let {fields} = this.state
         return (
             <>
 
@@ -41,26 +68,32 @@ class UserModal extends Component {
                     <Modal.Body>
                         <div className="form-group">
                             <label htmlFor="name">Name</label>
-                            <input onChange={this.handleChange.bind(this)} type="text" name={"name"} id={"name"} className="form-control"/>
+                            <input value={fields.name} onChange={this.handleChange.bind(this)} type="text" name={"name"}
+                                   id={"name"}
+                                   className="form-control"/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="age">Age</label>
-                            <input onChange={this.handleChange.bind(this)} type="text" name={"age"} id={"age"} className="form-control"/>
+                            <input value={fields.age} onChange={this.handleChange.bind(this)} type="text" name={"age"} id={"age"}
+                                   className="form-control"/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="phone">Pone</label>
-                            <input onChange={this.handleChange.bind(this)} type="text" name={"phone"} id={"phone`"} className="form-control"/>
+                            <input value={fields.phone} onChange={this.handleChange.bind(this)} type="text" name={"phone"} id={"phone`"}
+                                   className="form-control"/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="risk">Risk</label>
-                            <input onChange={this.handleChange.bind(this)} type="text" name={"risk"} id={"risk`"} className="form-control"/>
+                            <input value={fields.risk} onChange={this.handleChange.bind(this)} type="text" name={"risk"} id={"risk`"}
+                                   className="form-control"/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="id">Id</label>
-                            <input onChange={this.handleChange.bind(this)} type="text" name={"id"} id={"id`"} className="form-control"/>
+                            <input value={fields.id} onChange={this.handleChange.bind(this)} type="text" name={"id"} id={"id`"}
+                                   className="form-control" readOnly={this.props.update}/>
                         </div>
                         <div className=" text-center">
-                            <button className="btn btn-primary">
+                            <button onClick={() => this.handleSubmit()} className="btn btn-primary">
                                 add
                             </button>
                         </div>

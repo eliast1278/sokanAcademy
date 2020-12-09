@@ -8,6 +8,7 @@ class User extends Component {
     state = {
         addflag: false,
         modalShow: true,
+        selected: "",
         tblHead: ["name", "age", "phone", "Infection level", "Action"],
         tblRow: [4, 2, 3, 3, 3],
         user: [{
@@ -31,6 +32,8 @@ class User extends Component {
         },
         ],
     };
+
+
     handleDeleteUser = (id) => {
         let {user} = this.state
         let newUser = []
@@ -48,6 +51,24 @@ class User extends Component {
         setStore({userModal: true})
     }
 
+    openUpdateModal(row) {
+        this.setState({selected: row, addflag: true})
+        setStore({userModal: true})
+    }
+
+    handleUpdateUser = (User) => {
+        let {user} = this.state
+        let newUser = []
+        for (let row of user) {
+            if (row.id === User.id) {
+                row = user
+            }
+            newUser.push(row)
+        }
+        this.setState({user:newUser})
+
+    }
+
 
     tblBodyCreator = (info) => {
         let rows = [];
@@ -57,7 +78,8 @@ class User extends Component {
                 <span>{row.age}</span>,
                 <span>{row.phone}</span>,
                 <span>{row.risk}</span>,
-                <span><button className={"btn btn-warning btn-sm mx-1"}>edit</button><button
+                <span><button onClick={() => this.openUpdateModal(row)}
+                              className={"btn btn-warning btn-sm mx-1"}>edit</button><button
                     onClick={() => this.handleDeleteUser(row.id)}
                     className={"btn btn-danger btn-sm mx-1"}>delete</button></span>
 
@@ -68,6 +90,12 @@ class User extends Component {
         return rows;
     };
 
+    addUser = (newUser) => {
+        let {user} = this.state
+        user.push(newUser)
+        this.setState({user})
+
+    }
 
     render() {
         let {user, tblHead, tblRow, modalShow} = this.state
@@ -79,8 +107,9 @@ class User extends Component {
                     All Patients
                 </span>
                         <div>
-                            <button onClick={()=>this.setModalShow()} className={"btn border rounded"} title={"add"}><i className="fa fa-plus"
-                                                                                      aria-hidden="true"/>
+                            <button onClick={() => this.setModalShow()} className={"btn border rounded"} title={"add"}>
+                                <i className="fa fa-plus"
+                                   aria-hidden="true"/>
                             </button>
                         </div>
                     </div>
@@ -94,7 +123,7 @@ class User extends Component {
                         />
                     </div>
                 </div>
-                <UserModal update={this.state.addflag}/>
+                <UserModal update={this.state.addflag} add={this.addUser} user={this.state.selected} updateUser={this.handleUpdateUser}/>
             </div>
         )
     }
