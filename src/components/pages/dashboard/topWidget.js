@@ -11,14 +11,6 @@ class TopWidget extends Component {
     };
   }
 
-  fetchData = () => {
-    GetData().then((res) => {
-      if (res) {
-        this.setState({ global: res.Global, loading: false });
-      }
-    });
-  };
-
   render() {
     let { loading, global } = this.state;
     return (
@@ -27,49 +19,25 @@ class TopWidget extends Component {
           <div className=" item  ">
             <div className="top-widget active">
               <p className={"title mb-0"}>Total</p>
-              {loading ? (
-                <div className="spinner-border" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
-              ) : (
-                <p className="value mb-0">{global.TotalConfirmed}</p>
-              )}
+              10
             </div>
           </div>
           <div className=" item  ">
             <div className="top-widget">
               <p className={"title mb-0"}>Active</p>
-              {loading ? (
-                <div className="spinner-border" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
-              ) : (
-                <p className="value mb-0">{global.NewConfirmed}</p>
-              )}
+              10
             </div>
           </div>
           <div className=" item ">
             <div className="top-widget">
               <p className={"title mb-0"}>Recovered</p>
-              {loading ? (
-                <div className="spinner-border" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
-              ) : (
-                <p className="value mb-0">{global.NewRecovered}</p>
-              )}
+              10
             </div>
           </div>
           <div className=" item  ">
             <div className="top-widget">
               <p className={"title mb-0"}>Death</p>
-              {loading ? (
-                <div className="spinner-border" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
-              ) : (
-                <p className="value mb-0">{global.TotalDeaths}</p>
-              )}
+              10
             </div>
           </div>
         </div>
